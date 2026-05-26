@@ -1,0 +1,326 @@
+@import "tailwindcss";
+
+/* ____________________ FABRIC GRADIENT FLOWS ____________________ */
+
+@keyframes weaveBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-vibrant-bg {
+  /* Dynamic gradient consisting of BUTEX Navy, gold accent color, teal fiber, rich indigo, and soft violet */
+  background: linear-gradient(-45deg, #010a18, #001e3d, #003366, #ffcc00, #5a189a, #0077b6, #005f73);
+  background-size: 400% 400%;
+  animation: weaveBackground 18s ease infinite;
+}
+
+/* ____________________ RETE / WEAVE OVERLAYS ____________________ */
+
+.fine-weave-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: 
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.015) 0px, rgba(255, 255, 255, 0.015) 1px, transparent 1px, transparent 6px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.01) 0px, rgba(255, 255, 255, 0.01) 1px, transparent 1px, transparent 8px);
+  mix-blend-mode: overlay;
+  opacity: 0.85;
+}
+
+/* ____________________ HERO NAME HOVER (FROM TEMPLATE) ____________________ */
+
+.hero-name {
+  display: inline-block;
+  font-size: 48px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #ffcc00;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  transition: color 0.4s, transform 0.4s, text-shadow 0.4s;
+  cursor: pointer;
+  position: relative;
+}
+
+.hero-name:hover {
+  color: #ffffff;
+  transform: scale(1.07) rotate(-1.5deg);
+  text-shadow: 0 12px 32px #003366, 0 2px 8px #ffcc00;
+}
+
+/* ____________________ GLASSMORPHISM IN GREENS & NAVY (GLASS LIQUIDE GLOWS) ____________________ */
+
+.liquid-glass-card {
+  position: relative;
+  background: rgba(0, 16, 40, 0.45);
+  backdrop-filter: blur(16px) saturate(125%);
+  -webkit-backdrop-filter: blur(16px) saturate(125%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top-color: rgba(255, 255, 255, 0.2);
+  border-left-color: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s;
+  will-change: transform, box-shadow;
+  overflow: hidden;
+}
+
+.liquid-glass-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 25%,
+    rgba(255, 255, 255, 0.12) 50%,
+    rgba(255, 255, 255, 0) 75%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.liquid-glass-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(0, 22, 54, 0.6);
+  border-color: rgba(255, 255, 255, 0.22);
+  border-top-color: rgba(255, 204, 0, 0.55); /* golden border highlight on top */
+  box-shadow: 
+    0 22px 48px rgba(0, 0, 0, 0.45),
+    0 4px 12px rgba(255, 204, 0, 0.05);
+}
+
+.liquid-glass-card:hover::after {
+  transform: translate(120%) skewX(-20deg);
+}
+
+.liquid-glass-card-light {
+  position: relative;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px) saturate(135%);
+  -webkit-backdrop-filter: blur(16px) saturate(135%);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-top-color: rgba(255, 255, 255, 0.85);
+  border-left-color: rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.12);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s;
+  will-change: transform, box-shadow;
+  overflow: hidden;
+}
+
+.liquid-glass-card-light::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 25%,
+    rgba(255, 255, 255, 0.45) 50%,
+    rgba(255, 255, 255, 0) 75%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.liquid-glass-card-light:hover {
+  transform: translateY(-8px) scale(1.02);
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(255, 255, 255, 0.7);
+  border-top-color: rgba(255, 204, 0, 0.75); /* golden border highlight on top shirt */
+  box-shadow: 
+    0 22px 48px rgba(0, 0, 0, 0.18),
+    0 4px 12px rgba(255, 204, 0, 0.1);
+}
+
+.liquid-glass-card-light:hover::after {
+  transform: translate(120%) skewX(-20deg);
+}
+
+.order-creation-glass {
+  position: relative;
+  background: rgba(0, 16, 40, 0.45);
+  backdrop-filter: blur(16px) saturate(125%);
+  -webkit-backdrop-filter: blur(16px) saturate(125%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top-color: rgba(255, 255, 255, 0.25);
+  border-left-color: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 40px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.35);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+
+.order-creation-glass::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 25%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0) 75%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.order-creation-glass:hover {
+  transform: translateY(-4px) scale(1.01);
+  background: rgba(0, 22, 54, 0.6);
+  border-color: rgba(255, 255, 255, 0.25);
+  border-top-color: rgba(255, 204, 0, 0.45);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.45);
+}
+
+.order-creation-glass:hover::after {
+  transform: translate(120%) skewX(-20deg);
+}
+
+/* ____________________ BUBBLES ANIMATION ____________________ */
+
+@keyframes floatBubble {
+  0% {
+    transform: translateY(100%) scale(0.9);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.4;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-120%) scale(1.1);
+    opacity: 0;
+  }
+}
+
+.glass-anim-bubbles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(255, 204, 0, 0.25) 0%, rgba(255, 255, 255, 0.05) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.bubble:nth-child(1) {
+  left: 10%;
+  width: 40px;
+  height: 40px;
+  animation: floatBubble 8s infinite linear;
+  animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+  left: 30%;
+  width: 80px;
+  height: 80px;
+  animation: floatBubble 11s infinite linear;
+  animation-delay: 2s;
+}
+
+.bubble:nth-child(3) {
+  left: 55%;
+  width: 50px;
+  height: 50px;
+  animation: floatBubble 9s infinite linear;
+  animation-delay: 1s;
+}
+
+.bubble:nth-child(4) {
+  left: 75%;
+  width: 90px;
+  height: 90px;
+  animation: floatBubble 14s infinite linear;
+  animation-delay: 3s;
+}
+
+.bubble:nth-child(5) {
+  left: 90%;
+  width: 60px;
+  height: 60px;
+  animation: floatBubble 10s infinite linear;
+  animation-delay: 5s;
+}
+
+/* ____________________ MACHINERY GALLERY EFFECTS ____________________ */
+
+.gallery-card {
+  position: relative;
+  height: 0;
+  padding-bottom: 66%; /* 3:2 aspect */
+  border-radius: 12px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(.2,.9,.2,1), box-shadow 0.45s;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  background: #0f172a;
+}
+
+.gallery-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center center;
+  transition: transform 0.45s ease, filter 0.45s ease;
+  backface-visibility: hidden;
+}
+
+.gallery-item {
+  perspective: 1200px;
+}
+
+.gallery-item:hover .gallery-card {
+  transform: translateY(-8px) rotateX(4deg) rotateY(-4deg) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.gallery-item:hover .gallery-card img {
+  transform: scale(1.05);
+  filter: saturate(1.1) contrast(1.05);
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
